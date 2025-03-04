@@ -1,5 +1,5 @@
 document.getElementById("downloadBtn").addEventListener("click", () => {
-    fetch('https://my-video-site-d46y.onrender.com/get-video')
+    fetch('https://my-video-site-d46y.onrender.com')
         .then(response => response.json())
         .then(data => {
             if (data.fileUrl) {
