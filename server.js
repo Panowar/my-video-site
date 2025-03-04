@@ -1,3 +1,26 @@
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+
+// 🔥 Allow requests from any domain (for testing)
+app.use(cors());
+
+// OR allow only your frontend URL
+app.use(cors({
+    origin: "https://panowar.github.io/my-video-site/public/index.html", // 🔥 Replace with your actual frontend URL
+    methods: "GET,POST"
+}));
+
+app.get("/get-video", (req, res) => {
+    res.json({ videoUrl: "https://your-storage.com/video.mp4" });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
 const express = require('express');
 const app = express();
 const fs = require('fs');
